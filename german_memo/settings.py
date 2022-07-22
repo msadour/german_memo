@@ -30,6 +30,13 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+BACKEND_URLS = [
+    "core.backend.endpoints.grammar.apps.GrammarConfig",
+    "core.backend.endpoints.user.apps.UserConfig",
+    "core.backend.endpoints.verb.apps.VerbConfig",
+    "core.backend.endpoints.vocabulary.apps.VocabularyConfig",
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+INSTALLED_APPS += BACKEND_URLS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,11 +84,14 @@ WSGI_APPLICATION = 'german_memo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "german_memo",
+        "USER": "postgres",
+        "PASSWORD": "qwertz",
+        "HOST": "localhost",
+        "PORT": 5433,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
