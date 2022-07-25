@@ -38,7 +38,7 @@ BACKEND_URLS = [
 ]
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -92,6 +92,8 @@ DATABASES = {
         "PORT": 5433,
     }
 }
+
+AUTH_USER_MODEL = "user.UserProfile"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
