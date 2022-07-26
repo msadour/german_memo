@@ -79,3 +79,21 @@ class SubmitRequestChange(permissions.BasePermission):
                 return True
             return request.method == "PATCH"
         return False
+
+
+class Profile(permissions.BasePermission):
+    """Class Profile."""
+
+    def has_permission(self, request: Request, view: ModelViewSet) -> bool:
+        """Check if the method get/post/delete.
+
+        Args:
+            request:
+            view:
+
+        Returns:
+            Is permitted or not.
+        """
+        if view.action == "list":
+            return request.user.is_superuser
+        return request.method in ["GET", "PATCH", "PUT", "DELETE"]
