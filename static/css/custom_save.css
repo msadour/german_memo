@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'pilat_widelight';
+    src: url('config/webfontkit-light/pilatwide-light-webfont.woff2') format('woff2'),
+         url('config/webfontkit-light/pilatwide-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pilat_widebold';
+    src: url('config/webfontkit-bold/pilatwide-bold-webfont.woff2') format('woff2'),
+         url('config/webfontkit-bold/pilatwide-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pilat_wideheavy';
+    src: url('config/webfontkit-heavy/pilatwide-heavy-webfont.woff2') format('woff2'),
+         url('config/webfontkit-heavy/pilatwide-heavy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.theme_dpw_light {font-family: 'pilat_widelight', Arial, sans-serif;}
+
+.theme_dpw_heavy {font-family: 'pilat_wideheavy', Arial, sans-serif;}
+
+.theme_dpw_bold {font-family: 'pilat_widebold', Arial, sans-serif;}
+
+::-webkit-scrollbar {
+    width: 5px;
+    margin:0px;
+    padding:0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {background: red;}
+
+::-webkit-scrollbar-thumb {background: #f7b84b;}
+
+::-webkit-scrollbar-thumb:hover {background: #555;}
+
+#custom_footer_background {
+    padding: 19px 15px 20px;
+    text-align:center;
+    bottom:0;
+    list-style: none;
+    color: #fff;
+    background-repeat: no-repeat;
+}
+
+.footer-nav {
+    display: block;
+    box-sizing: border-box;
+    font-size: 17px;
+    font-family: 'pilat_widelight', Arial, sans-serif;
+}
+
+.table_footer {width: 100%;}
+
+h3, .text_bold {
+    color:#fff;
+    font-weight: bold;
+    font-family: 'pilat_widebold', Arial, sans-serif;
+    font-size: 17px;
+}
+
+ul {list-style: none}
+
+ul > li {line-height: 22px;}
+
+li > a {color: #fff;}
+
+td > a {
+    color: #fff;
+    font-family: 'pilat_widelight', Arial, sans-serif;
+}
+
+.button {
+    background: transparent linear-gradient(270deg,#5154b6,#312a82 23%,#261d5e 54%,#1e1343) 0 0 no-repeat padding-box;
+    border-radius: 58px;
+    text-align: center;
+    padding-top: 18px;
+}
+
+.custom-range::-webkit-slider-thumb {background: red;}
+
+.custom-range::-moz-range-thumb {background: red;}
+
+.custom-range::-ms-thumb {background: red;}
+
+.dpw_icon {float: left;}
+
+.button_middle {width: 150%}
+
+.button_large {width: 100%}
+
+.top_menu {margin-top: 3%}
+
+label, #toggle
+{
+    display: none;
+}
+
+.custom_header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+}
+
+@media all and (max-width: 991px)
+{
+    nav .navbar-custom
+    {
+        height: 60px;
+        width: 991px
+    }
+
+    .navbar-custom .main_pages
+    {
+        display: none;
+        flex-direction: column;
+        background-color: #5154b6;
+        height: 60px;
+        width: 991px;
+    }
+
+    nav .main_pages a {
+        width: 100%;
+    }
+
+    label
+    {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #toggle:checked + .main_pages {
+        display: flex;
+    }
+}
+

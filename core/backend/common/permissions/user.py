@@ -58,7 +58,7 @@ class SubmitRequestChange(permissions.BasePermission):
         if request.user.is_authenticated:
             if request.user.is_staff:
                 return True
-            return request.method == "PATCH"
+            return request.method == "POST"
         return False
 
     def has_object_permission(
@@ -77,7 +77,7 @@ class SubmitRequestChange(permissions.BasePermission):
         if request.user.is_authenticated:
             if request.user.is_staff:
                 return True
-            return request.method == "PATCH"
+            return request.method == "POST"
         return False
 
 

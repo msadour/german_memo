@@ -1,0 +1,37 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+		{% include "./partials/head-css.html" %}
+        <meta charset="UTF-8">
+        <link rel="icon" type=“image/x-icon" href="https://www.vfcvlaardingen.nl/wp-content/uploads/vfcvoetbal/2017/07/flag-button-round-250-1.png">
+        
+        <link rel="stylesheet" href="{% static 'css/custom/button.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom/general.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom/menu.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom/scrollbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom/slider.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom/text.css' %}">
+
+        <title>German memo</title>
+    </head>
+
+    <body style="background-color:#AF305F">
+        <div id="wrapper" style="overflow-y:scroll">
+            {% include "./partials/menu.html" %}
+            <div class="content-page" style="margin: auto">
+                <div class="content">
+                    <div class="container-fluid">
+                        <br /><br /><br /><br /><br />
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+            {% include './partials/footer.html' %}
+        </div>
+        <script src="{% static 'js/vendor.min.js' %}"></script>
+        <script src="{% static 'js/app.min.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+ul {list-style: none}
+
+ul > li {line-height: 22px;}
+
+li > a {color: #fff;}
+
+td > a {
+    color: #fff;
+    font-family: 'pilat_widelight', Arial, sans-serif;
+}
+
+.dpw_icon {float: left;}

@@ -1,0 +1,10 @@
+.button {
+    background: transparent linear-gradient(270deg,#5154b6,#312a82 23%,#261d5e 54%,#1e1343) 0 0 no-repeat padding-box;
+    border-radius: 58px;
+    text-align: center;
+    padding-top: 18px;
+}
+
+.button_middle {width: 150%}
+
+.button_large {width: 100%}

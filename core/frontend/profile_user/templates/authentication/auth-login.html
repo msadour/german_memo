@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="account-pages mt-5 mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                    <div class="card bg-pattern">
+
+                        <div class="card-body p-4">
+                            {% if size_error > 0 %}
+                                <div class="text-center w-75 m-auto">
+                                    <p class="mb-4 mt-3" style="color:red;font-weight: bold;font-size: 20px;">{{message_error}}</p>
+                                </div>
+                            {% endif %}
+
+                            <div class="text-center w-75 m-auto">
+                                <p class="text-muted mb-4 mt-3">Enter your email address and password to access dashboard.</p>
+                            </div>
+
+                            <form action="/authentication/perform_login">
+
+                                <div class="mb-3">
+                                    <label for="emailaddress" class="form-label">Email address</label>
+                                    <input class="form-control" type="email" id="emailaddress" name="emailaddress" required="" placeholder="Enter your email">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password" class="form-control" name="password" placeholder="Enter your password">
+                                        <div class="input-group-text" data-password="false">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center d-grid">
+                                    <button class="btn btn-primary button" type="submit"> Login </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

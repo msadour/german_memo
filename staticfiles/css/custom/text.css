@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'pilat_widelight';
+    src: url('config/webfontkit-light/pilatwide-light-webfont.woff2') format('woff2'),
+         url('config/webfontkit-light/pilatwide-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pilat_widebold';
+    src: url('config/webfontkit-bold/pilatwide-bold-webfont.woff2') format('woff2'),
+         url('config/webfontkit-bold/pilatwide-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pilat_wideheavy';
+    src: url('config/webfontkit-heavy/pilatwide-heavy-webfont.woff2') format('woff2'),
+         url('config/webfontkit-heavy/pilatwide-heavy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.theme_dpw_light {font-family: 'pilat_widelight', Arial, sans-serif;}
+
+.theme_dpw_heavy {font-family: 'pilat_wideheavy', Arial, sans-serif;}
+
+.theme_dpw_bold {font-family: 'pilat_widebold', Arial, sans-serif;}
+
+h3, .text_bold {
+    color:#fff;
+    font-weight: bold;
+    font-family: 'pilat_widebold', Arial, sans-serif;
+    font-size: 17px;
+}

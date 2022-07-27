@@ -1,0 +1,51 @@
+.top_menu {margin-top: 3%}
+
+label, #toggle
+{
+    display: none;
+}
+
+.custom_header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+}
+
+@media all and (max-width: 991px)
+{
+    nav .navbar-custom
+    {
+        height: 60px;
+        width: 991px
+    }
+
+    .navbar-custom .main_pages
+    {
+        display: none;
+        flex-direction: column;
+        background-color: #5154b6;
+        height: 60px;
+        width: 991px;
+    }
+
+    nav .main_pages a {
+        width: 100%;
+    }
+
+    label
+    {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #toggle:checked + .main_pages {
+        display: flex;
+    }
+}

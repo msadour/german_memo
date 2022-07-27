@@ -14,11 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 api_urls = [
     path("api/user/", include("core.backend.endpoints.user.urls")),
+    path("api/vocabulary/", include("core.backend.endpoints.vocabulary.urls")),
+]
+
+frontend_urls = [
+    path("", include("core.frontend.main.vocabulary_page.urls")),
 ]
 
 urlpatterns = []
 
 urlpatterns += api_urls
+urlpatterns += frontend_urls
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

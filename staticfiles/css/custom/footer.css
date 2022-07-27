@@ -1,0 +1,17 @@
+#custom_footer_background {
+    padding: 19px 15px 20px;
+    text-align:center;
+    bottom:0;
+    list-style: none;
+    color: #fff;
+    background-repeat: no-repeat;
+}
+
+.footer-nav {
+    display: block;
+    box-sizing: border-box;
+    font-size: 17px;
+    font-family: 'pilat_widelight', Arial, sans-serif;
+}
+
+.table_footer {width: 100%;}
