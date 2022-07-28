@@ -35,12 +35,14 @@ BACKEND_URLS = [
     "core.backend.endpoints.user.apps.UserConfig",
     "core.backend.endpoints.verb.apps.VerbConfig",
     "core.backend.endpoints.vocabulary.apps.VocabularyConfig",
+    "core.backend.endpoints.dashboard.apps.DashboardConfig",
 ]
 
 FRONTEND_URLS = [
     "core.frontend.admin.manage_user.apps.ManageUserConfig",
     "core.frontend.admin.request_change.apps.RequestChangeConfig",
     "core.frontend.main.vocabulary_page.apps.VocabularyPageConfig",
+    "core.frontend.main.verb_page.apps.VerbPageConfig",
     "core.frontend.profile_user.apps.ProfileUserConfig",
 ]
 

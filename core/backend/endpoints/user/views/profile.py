@@ -15,8 +15,6 @@ from core.backend.endpoints.user.utils.perform_actions import perform_create_use
 class SubscriptionViewSet(viewsets.ViewSet):
     """Class SubscriptionViewSet."""
 
-    serializer_class = UserSerializer
-
     def create(self, request: Request, *args: Any, **kwargs: Any) -> Response:
         """Subscription of a user.
 
@@ -29,9 +27,8 @@ class SubscriptionViewSet(viewsets.ViewSet):
             Response from the server.
         """
         data = request.data
-        user = perform_create_user(data)
-        serializer = self.serializer_class(user, many=False)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        perform_create_user(data)
+        return Response(status=status.HTTP_201_CREATED)
 
 
 class UserViewSet(viewsets.ModelViewSet):

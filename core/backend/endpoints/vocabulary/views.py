@@ -10,7 +10,7 @@ class VocabularyView(viewsets.ViewSet):
     """Class VocabularyView."""
 
     serializer_class = WordSerializer
-    queryset = Word.objects.all()
+    queryset = Word.objects.all().order_by("german_translation")
     permission_classes = []
 
     def list(self, request: Request) -> Response:

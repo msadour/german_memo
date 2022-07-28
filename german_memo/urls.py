@@ -20,10 +20,13 @@ from django.conf.urls.static import static
 api_urls = [
     path("api/user/", include("core.backend.endpoints.user.urls")),
     path("api/vocabulary/", include("core.backend.endpoints.vocabulary.urls")),
+    path("api/verb/", include("core.backend.endpoints.verb.urls")),
+    path("api/dashboard/", include("core.backend.endpoints.dashboard.urls")),
 ]
 
 frontend_urls = [
     path("", include("core.frontend.main.vocabulary_page.urls")),
+    path("verbs/", include("core.frontend.main.verb_page.urls")),
 ]
 
 urlpatterns = []
