@@ -21,23 +21,43 @@ def check_email_format(email: str):
         raise UpdateError("Wrong email format.")
 
 
-def perform_create_user(data) -> UserProfile:
+def perform_create_user(username, email, password, password_again, first_name, last_name) -> None:
     """Create a user.
 
     Args:
-        data:
+        username:
+        email:
+        password:
+        password_again:
+        first_name:
+        last_name:
 
     Returns:
         User created.
     """
-    new_customer = UserProfile.objects.create_user(
-        username=data.get("username"),
-        email=data.get("email"),
-        password=data.get("password"),
-        first_name=data.get("first_name"),
-        last_name=data.get("last_name"),
+    if len(password) <= 5:
+        raise UpdateError("Passwords is too short. Password should contain minimum 6 character.")
+
+    if password != password_again:
+        raise UpdateError("Passwords doesn't match.")
+
+    if len(email) > 0:
+        if len(UserProfile.objects.filter(email=email)) > 0:
+            raise UpdateError("This email is not available.")
+    check_email_format(email)
+
+    if len(UserProfile.objects.filter(username=username)) > 0:
+        raise UpdateError("This username is not available.")
+    elif len(username) <= 2:
+        raise UpdateError("Username is too short.")
+
+    UserProfile.objects.create_user(
+        username=username,
+        email=email,
+        password=password,
+        first_name=first_name,
+        last_name=last_name,
     )
-    return new_customer
 
 
 def perform_update_user(email, username, password, password_again, user) -> None:

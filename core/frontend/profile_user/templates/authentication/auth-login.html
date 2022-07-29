@@ -8,9 +8,9 @@
                     <div class="card bg-pattern">
 
                         <div class="card-body p-4">
-                            {% if size_error > 0 %}
+                            {% if message %}
                                 <div class="text-center w-75 m-auto">
-                                    <p class="mb-4 mt-3" style="color:red;font-weight: bold;font-size: 20px;">{{message_error}}</p>
+                                    <p class="mb-4 mt-3" style="color:red;font-weight: bold;font-size: 20px;">{{message}}</p>
                                 </div>
                             {% endif %}
 
@@ -18,7 +18,7 @@
                                 <p class="text-muted mb-4 mt-3">Enter your email address and password to access dashboard.</p>
                             </div>
 
-                            <form action="/authentication/perform_login">
+                            <form action="/user/perform_login/">
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
@@ -36,7 +36,7 @@
                                 </div>
 
                                 <div class="text-center d-grid">
-                                    <button class="btn btn-primary button" type="submit"> Login </button>
+                                    <button style="width:30%;border-radius: 58px;background-color:red" type="submit"> Login </button>
                                 </div>
                             </form>
                         </div>

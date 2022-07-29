@@ -15,6 +15,7 @@ from core.backend.endpoints.user.utils.perform_actions import perform_create_use
 class SubscriptionViewSet(viewsets.ViewSet):
     """Class SubscriptionViewSet."""
 
+    @wrapper_view_error(class_exception=UpdateError, status=400)
     def create(self, request: Request, *args: Any, **kwargs: Any) -> Response:
         """Subscription of a user.
 
@@ -27,7 +28,13 @@ class SubscriptionViewSet(viewsets.ViewSet):
             Response from the server.
         """
         data = request.data
-        perform_create_user(data)
+        username = data.get("username")
+        email = data.get("email")
+        password = data.get("password")
+        password_again = data.get("password_again")
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        perform_create_user(username, email, password, password_again, first_name, last_name)
         return Response(status=status.HTTP_201_CREATED)
 
 

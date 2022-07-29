@@ -39,8 +39,8 @@ class AuthTokenSerializer(serializers.Serializer):
         if not user.is_active:
             raise AuthenticationError("This account is deactivate.")
 
-        if not user.is_validated:
-            raise AuthenticationError("This account is not yet validate. Please contact the administrator.")
+        if not user.approved:
+            raise AuthenticationError("This account is not yet approved. Please contact the administrator.")
 
         if not check_password(password, user.password):
             raise AuthenticationError("Email/Password doesn't match.")

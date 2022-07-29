@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="account-pages mt-5 mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                    <div class="card bg-pattern">
+
+                        <div class="card-body p-4">
+                            {% if message %}
+                                <div class="text-center w-75 m-auto">
+                                    <p class="mb-4 mt-3" style="color:red;font-weight: bold;font-size: 20px;">{{message}}</p>
+                                </div>
+                            {% endif %}
+
+                            <div class="text-center w-75 m-auto">
+                                <p class="text-muted mb-4 mt-3">Subscription</p>
+                            </div>
+
+                            <form action="/user/perform_subscription/">
+
+                                <div class="mb-3">
+                                    <input class="form-control" type="email" id="emailaddress" name="emailaddress"  placeholder="Email" required="">
+                                </div>
+
+                                <div class="mb-3">
+                                    <input class="form-control" type="text" id="username" name="username"  placeholder="Username" required="">
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password" class="form-control" name="password"  placeholder="Password">
+                                        <div class="input-group-text" data-password="false">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password_again" class="form-control" name="password_again"  placeholder="Password again">
+                                        <div class="input-group-text" data-password="false">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="text" id="first_name" class="form-control" name="first_name"  placeholder="First name">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name">
+                                    </div>
+                                </div>
+
+                                <div class="text-center d-grid">
+                                    <button style="width:30%;border-radius: 58px;background-color:red" type="submit"> Subscribe </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
