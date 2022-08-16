@@ -26,3 +26,18 @@ class VocabularyView(viewsets.ViewSet):
         words = self.queryset.filter(approved=True)
         data = self.serializer_class(words, many=True).data
         return Response(data=data)
+
+    def retrieve(self, request: Request, pk: str = None) -> Response:
+        """
+        Retrieve particular verb.
+
+        Args:
+            request: request sent by the client.
+            pk:
+
+        Returns:
+            Response from the server.
+        """
+        word = self.queryset.get(id=pk)
+        data = self.serializer_class(word).data
+        return Response(data=data)

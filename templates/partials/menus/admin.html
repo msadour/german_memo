@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
 
-</body>
-</html>
+<div class="navbar-custom" style="background-color:#FEAA01">
+    <a href="/dashboard/planning/" style="float:left; margin-left:40px">
+        <img src="https://www.vfcvlaardingen.nl/wp-content/uploads/vfcvoetbal/2017/07/flag-button-round-250-1.png" alt="" width="60" height="60" class="dpw_icon" >
+    </a>
+
+    <div>
+        <nav class="list-unstyled topnav-menu float-end mb-0" style="margin-right:20px">
+            <label for="toggle">☰</label>
+            <input type="checkbox" id="toggle">
+            <div class="main_pages top_menu">
+                <table>
+                    <tr>
+
+                        <th>
+                            <a href="/user/subscription/" class="dropdown-item notify-item link">
+                            <i class="fe-user"></i>
+                            <span class="theme_dpw_light" style="color: #fff"> Dashboard </span>
+                            </a>
+                        </th>
+
+                        <th>
+                            <a href="/" class="dropdown-item notify-item link">
+                            <i class="fe-monitor"></i>
+                            <span class="theme_dpw_light" style="color: #fff"> Vocabulary word  </span>
+                            </a>
+                        </th>
+
+                        <th>
+                            <a href="/verbs/" class="dropdown-item notify-item link">
+                            <i class="fe-monitor"></i>
+                            <span class="theme_dpw_light" style="color: #fff"> Verbs  </span>
+                            </a>
+                        </th>
+
+
+                        <th>
+                            <a href="/user/login/" class="dropdown-item notify-item link">
+                            <i class="fe-user"></i>
+                            <span class="theme_dpw_light" style="color: #fff"> Settings  </span>
+                            </a>
+                        </th>
+
+                        <th>
+                            <a href="/admin/" class="dropdown-item notify-item link">
+                            <i class="fe-inbox"></i>
+                            <span class="theme_dpw_light" style="color: #fff"> Contact me  </span>
+                            </a>
+                        </th>
+
+                        <th>
+                            <a href="/user/login/" class="dropdown-item notify-item link">
+                            <i class="fe-user"></i>
+                            <span class="theme_dpw_light" style="color: #fff"> Logout  </span>
+                            </a>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+
+        <div class="logo-box">
+            <a href="/dashboard/planning" class="logo logo-dark text-center">
+                <span class="logo-sm">
+                    <img src="{% static 'images/icon_gm.png' %}" alt="" height="22">
+                </span>
+                <span class="logo-lg">
+                    <img src="{% static 'images/icon_gm.png' %}" alt="" height="20">
+                </span>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,6 +1,9 @@
 import requests
 
+from django.contrib.auth import logout
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from rest_framework.request import Request
 
 
 def login_page(request, message=None):
@@ -22,8 +25,27 @@ def perform_login(request):
     )
 
     if response.status_code == 201:
+        data = response.json()
+        request.session["token"] = data["token"]
+        request.session["user_id"] = data["user_id"]
+        request.session["email"] = data["email"]
+        request.session["is_staff"] = data["is_staff"]
         return redirect("/")
     else:
         data_error = response.json()
         message = data_error["error"]
         return login_page(request, message=message)
+
+
+def logout_view(request: Request) -> HttpResponse:
+    """Logout a user.
+
+    Args:
+        request: request sent by the client.
+
+    Returns:
+        Auth page.
+    """
+    request.session.clear()
+    logout(request)
+    return redirect("/")

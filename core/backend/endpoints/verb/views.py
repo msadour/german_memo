@@ -23,6 +23,21 @@ class VerbView(viewsets.ViewSet):
         Returns:
             Response from the server.
         """
-        words = self.queryset.filter(approved=True)
-        data = self.serializer_class(words, many=True).data
+        verbs = self.queryset.filter(approved=True)
+        data = self.serializer_class(verbs, many=True).data
+        return Response(data=data)
+
+    def retrieve(self, request: Request, pk: str = None) -> Response:
+        """
+        Retrieve particular verb.
+
+        Args:
+            request: request sent by the client.
+            pk:
+
+        Returns:
+            Response from the server.
+        """
+        verb = self.queryset.get(id=pk)
+        data = self.serializer_class(verb).data
         return Response(data=data)

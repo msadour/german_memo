@@ -1,5 +1,9 @@
 {% if request.session.token %}
-    <div></div>
+    {% if request.session.is_staff %}
+        {% include "./menus/admin.html" %}
+    {% else %}
+        {% include "./menus/user.html" %}
+    {% endif %}
 {% else %}
     {% include "./menus/visitor.html" %}
 {% endif %}
