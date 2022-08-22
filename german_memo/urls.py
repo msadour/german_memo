@@ -22,6 +22,7 @@ api_urls = [
     path("api/vocabulary/", include("core.backend.endpoints.vocabulary.urls")),
     path("api/verb/", include("core.backend.endpoints.verb.urls")),
     path("api/dashboard/", include("core.backend.endpoints.dashboard.urls")),
+    path("api/contact_me/", include("core.backend.endpoints.contact_me.urls")),
 ]
 
 frontend_urls = [
