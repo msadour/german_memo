@@ -65,7 +65,7 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response(status=200)
 
     def delete(self, request: Request, *args: Any, **kwargs: Any) -> Response:
-        """Delete an user.
+        """Delete a user.
 
         Args:
             request: request sent by the client.
