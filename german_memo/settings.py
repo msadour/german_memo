@@ -45,6 +45,7 @@ FRONTEND_URLS = [
     "core.frontend.main.vocabulary_page.apps.VocabularyPageConfig",
     "core.frontend.main.verb_page.apps.VerbPageConfig",
     "core.frontend.profile_user.apps.ProfileUserConfig",
+    "core.frontend.dashboard_request.apps.DashboardRequestConfig",
 ]
 
 INSTALLED_APPS = [
@@ -108,6 +109,12 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = "user.UserProfile"
+
+REST_FRAMEWORK = {
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication',
+   )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

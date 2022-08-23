@@ -9,12 +9,13 @@ from core.backend.common.exceptions.user import UpdateError
 from core.backend.endpoints.dashboard.utils import approve
 
 
-class ManageBaseViewSet(viewsets.ViewSet):
+class ManageBaseViewSet(viewsets.ModelViewSet):
     """Class ManageBaseViewSet."""
 
     model = None
     serializer_class = None
-    permission_classes = [permissions.IsAdminUser]
+    queryset = None
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
     @wrapper_view_error(class_exception=UpdateError, status=400)
     def list(self, request: Request) -> Response:
@@ -27,24 +28,6 @@ class ManageBaseViewSet(viewsets.ViewSet):
         Returns:
             Response from the server.
         """
-        items = self.model.objects.filter(approve=False)
+        items = self.model.objects.filter(approved=False)
         data = self.serializer_class(items, many=True).data
         return Response(data=data)
-
-    @wrapper_view_error(class_exception=UpdateError, status=400)
-    def update(self, request: Request, pk: str = None, *args: Any, **kwargs: Any) -> Response:
-        """Approve (or not) an item.
-
-        Args:
-            request: request sent by the client.
-            pk:
-            args: Variable length argument list.
-            kwargs: Arbitrary keyword arguments.
-
-        Returns:
-            Response from the server.
-        """
-        item = self.model.objects.get(id=pk)
-        is_approved = request.data.get("is_approved")
-        approve(item, is_approved)
-        return Response(status=status.HTTP_200_OK)

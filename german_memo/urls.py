@@ -29,6 +29,7 @@ frontend_urls = [
     path("", include("core.frontend.main.vocabulary_page.urls")),
     path("verbs/", include("core.frontend.main.verb_page.urls")),
     path("user/", include("core.frontend.profile_user.urls")),
+    path("dashboard/", include("core.frontend.dashboard_request.urls")),
 ]
 
 urlpatterns = []

@@ -8,6 +8,7 @@ from django.http import QueryDict
 from django.db.models import Q
 from rest_framework import serializers
 
+from core.backend.endpoints.dashboard.utils import approve
 from core.backend.endpoints.user.models import UserProfile
 from core.backend.common.exceptions.user import AuthenticationError
 
@@ -74,14 +75,29 @@ class UserSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "email",
+            "approved"
         ]
 
 
 class UserInterfaceSerializer(serializers.ModelSerializer):
-    """Class UserSerializer."""
+    """Class UserInterfaceSerializer."""
+
+    approved = serializers.BooleanField()
+
+    def update(self, instance, validated_data):
+        is_approved = validated_data.pop("approved")
+        approve(instance, is_approved)
+        return instance
 
     class Meta:
         """Class Meta."""
 
         model = UserProfile
-        fields = "__all__"
+        fields = [
+            "id",
+            "email",
+            "username",
+            "first_name",
+            "last_name",
+            "approved"
+        ]

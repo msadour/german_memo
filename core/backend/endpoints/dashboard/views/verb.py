@@ -7,4 +7,5 @@ class ManageVerbViewSet(ManageBaseViewSet):
     """Class ManageVerbViewSet."""
 
     model = Verb
+    queryset = Verb.objects.filter(approved=False)
     serializer_class = VerbSerializer

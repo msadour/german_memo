@@ -7,4 +7,5 @@ class ManageWordViewSet(ManageBaseViewSet):
     """Class ManageWordViewSet."""
 
     model = Word
+    queryset = Word.objects.filter(approved=False)
     serializer_class = WordSerializer

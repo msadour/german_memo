@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row" style="min-height:380px">
+        <div class="col-9">
+            <div class="card" style="height:600px!important;">
+                <div class="card-body" >
+
+                    <div id="cardCollpase5" class="collapse show" style="width:100%;max-height:500px!important;">
+                        <div class="pt-3">
+
+                            <div class="text-center w-75 m-auto">
+                                <p>Users.</p>
+                            </div>
+
+                            <table class="table table-centered table-nowrap table-borderless mb-0">
+                                <thead class="table-light custom_header">
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Username</th>
+                                        <th>First name</th>
+                                        <th>Last name</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in users %}
+                                        <tr>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.username }}</td>
+                                            <td>{{ user.first_name }}</td>
+                                            <td>{{ user.last_name }}</td>
+                                            <td>
+                                                <a href="/dashboard/approve/user/{{user.id}}/"><button>Approve</button></a>
+                                                <a href="/dashboard/reject/user/{{user.id}}/"><button>Reject</button></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card" style="height:600px!important;">
+                <div class="card-body" >
+
+                    <div id="cardCollpase6" class="collapse show" style="width:100%;max-height:500px!important;">
+                        <div class="pt-3">
+
+                            <div class="text-center w-75 m-auto">
+                                <p>Words.</p>
+                            </div>
+
+                            <table class="table table-centered table-nowrap table-borderless mb-0">
+                                <thead class="table-light custom_header">
+                                    <tr>
+                                        <th>German</th>
+                                        <th>English</th>
+                                        <th>French</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for word in words %}
+                                        <tr>
+                                            <td>{{ word.german_translation }}</td>
+                                            <td>{{ word.english_translation }}</td>
+                                            <td>{{ word.french_translation }}</td>
+                                            <td>
+                                                <a href="/dashboard/approve/word/{{word.id}}/"><button>Approve</button></a>
+                                                <a href="/dashboard/reject/word/{{word.id}}/"><button>Reject</button></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card" style="height:600px!important;">
+                <div class="card-body" >
+
+                    <div id="cardCollpase7" class="collapse show" style="width:100%;max-height:500px!important;">
+                        <div class="pt-3" style="">
+
+                            <div class="text-center w-75 m-auto">
+                                <p>Verbs.</p>
+                            </div>
+
+                            <table class="table table-centered table-nowrap table-borderless mb-0">
+                                <thead class="table-light custom_header">
+                                    <tr>
+                                        <th>Verb in present</th>
+                                        <th>English</th>
+                                        <th>French</th>
+                                        <th>Past participle</th>
+                                        <th>Simple past</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for verb in verbs %}
+                                        <tr>
+                                            <td>{{ verb.verb_in_present }}</td>
+                                            <td>{{ verb.english_translation }}</td>
+                                            <td>{{ verb.french_translation }}</td>
+                                            <td>{{ verb.past_participle }}</td>
+                                            <td>{{ verb.simple_past }}</td>
+                                            <td>
+                                                <a href="/dashboard/approve/verb/{{verb.id}}/"><button>Approve</button></a>
+                                                <a href="/dashboard/reject/verb/{{verb.id}}/"><button>Reject</button></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
