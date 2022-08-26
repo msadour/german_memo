@@ -37,7 +37,7 @@ def perform_login(request):
         return login_page(request, message=message)
 
 
-def logout_view(request: Request) -> HttpResponse:
+def perform_logout(request: Request) -> HttpResponse:
     """Logout a user.
 
     Args:
@@ -46,6 +46,10 @@ def logout_view(request: Request) -> HttpResponse:
     Returns:
         Auth page.
     """
+    requests.post(
+        f"http://127.0.0.1:8000/api/user/logout/",
+        headers={"Authorization": "Token " + request.session.get("token", "")}
+    )
     request.session.clear()
     logout(request)
     return redirect("/")
