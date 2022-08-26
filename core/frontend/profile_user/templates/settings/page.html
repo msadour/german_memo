@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        {% if error %}
+            <script>alert(error)</script>
+        {% endif %}
+        <div class="row">
+            <div class="account-pages mt-5 mb-5">
+            <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                    <div class="card bg-pattern">
+
+                        <div class="card-body p-4">
+
+                            <h4 class="mb-3 header-title theme_dpw_heavy">Your informations</h4>
+
+                            <form class="form-horizontal" action="/dashboard/user/update_user_info">
+
+                                <div class="row mb-3">
+                                    <p class="col-4 col-xl-3 col-form-label">Email</p>
+                                    <div class="col-8 col-xl-9">
+                                        <input type="text" class="form-control" value="{{ user.email }}" name="email">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <p class="col-4 col-xl-3 col-form-label">Username</p>
+                                    <div class="col-8 col-xl-9">
+                                        <input type="text" class="form-control" value="{{ user.username }}" name="username">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <p class="col-4 col-xl-3 col-form-label">First name</p>
+                                    <div class="col-8 col-xl-9">
+                                        <input type="text" class="form-control" value="{{ user.first_name }}" name="first_name">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <p class="col-4 col-xl-3 col-form-label">Last name</p>
+                                    <div class="col-8 col-xl-9">
+                                        <input type="text" class="form-control"  value="{{ user.last_name }}" name="last_name">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <p class="col-4 col-xl-3 col-form-label">New Password</p>
+                                    <div class="col-8 col-xl-9">
+                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <p class="col-4 col-xl-3 col-form-label">Password again</p>
+                                    <div class="col-8 col-xl-9">
+                                        <input type="password" class="form-control" id="inputPassword5" placeholder="Retype Password" name="password_again">
+                                    </div>
+                                </div>
+
+                                <div class="col-8 col-xl-9">
+                                    <div class="text-center d-grid">
+                                        <button class="theme_dpw_bold" style="width:30%;border-radius: 58px;background-color:red" type="submit"> Update </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+{% endblock %}

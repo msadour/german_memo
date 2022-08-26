@@ -72,11 +72,7 @@ class UserSerializer(serializers.ModelSerializer):
         """Class Meta."""
 
         model = UserProfile
-        fields = [
-            "id",
-            "email",
-            "approved"
-        ]
+        fields = "__all__"
 
 
 class UserInterfaceSerializer(serializers.ModelSerializer):

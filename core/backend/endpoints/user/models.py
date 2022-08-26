@@ -11,8 +11,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(max_length=255, unique=True)
     username = models.CharField(max_length=255, unique=True)
-    first_name = models.CharField(max_length=255, null=True, blank=True)
-    last_name = models.CharField(max_length=255, null=True, blank=True)
+    first_name = models.CharField(max_length=255, blank=True, default="")
+    last_name = models.CharField(max_length=255, blank=True, default="")
     is_staff = models.BooleanField(default=False)
     approved = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
