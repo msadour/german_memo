@@ -13,4 +13,5 @@ urlpatterns = [
     path("perform_login/", authentication.perform_login, name="perform_login"),
 
     path("settings/", profile.settings_page, name="settings"),
+    path("update_user_info/", profile.perform_update, name="update_user_info"),
 ]

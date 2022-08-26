@@ -70,12 +70,10 @@ def perform_update_user(email, username, password, password_again, user) -> None
         password_again:
         user:
     """
-    if len(password) > 0:
+    if len(password) > 0 and len(password_again) > 0:
         if password != password_again:
             raise UpdateError("Passwords doesn't match.")
-
-        if password != "" and password_again != "":
-            user.set_password(password)
+        user.set_password(password)
 
     if len(email) > 0:
         if user.email != email and len(UserProfile.objects.filter(email=email)) > 0:
@@ -86,7 +84,7 @@ def perform_update_user(email, username, password, password_again, user) -> None
     if len(username) > 0:
         if user.username != username and len(UserProfile.objects.filter(username=username)) > 0:
             raise UpdateError("This username is not available.")
-        user.email = email
+        user.username = username
 
     user.save()
 
