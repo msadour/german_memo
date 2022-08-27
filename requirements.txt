@@ -1,6 +1,7 @@
 black
 Django
 djangorestframework
+jsonfield
 psycopg2
 psycopg2-binary
 requests

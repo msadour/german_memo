@@ -5,11 +5,13 @@
         <div class="col-9">
             <div class="card">
                 <div class="card-body" >
-                    <form action="/vocabulary/send_request_vocabulary/{{ word.id }}/">
+                    <form class="form-horizontal" action="/dashboard/send_request/word/{{ word.id }}/" method="POST">
+                        {% csrf_token %}
 
                         <table class="table table-centered table-nowrap table-borderless mb-0">
                             <thead class="table-light custom_header">
                                 <tr>
+                                    <th>Indirect pronoun</th>
                                     <th>German</th>
                                     <th>English</th>
                                     <th>French</th>
@@ -17,6 +19,14 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>
+                                        <select name="direct_pronoun" id="direct_pronoun">
+                                          <option value="Der">Der</option>
+                                          <option value="Die">Die</option>
+                                          <option value="Das">Das</option>
+                                          <option value="">--</option>
+                                        </select>
+                                    </td>
                                     <td>
                                         <div class="mb-3"><input name="german_translation" value="{{ word.german_translation }}" /></div>
                                     </td>

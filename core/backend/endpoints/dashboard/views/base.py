@@ -6,7 +6,6 @@ from rest_framework.response import Response
 
 from core.backend.common.exceptions.handling_exceptions import wrapper_view_error
 from core.backend.common.exceptions.user import UpdateError
-from core.backend.endpoints.dashboard.utils import approve
 
 
 class ManageBaseViewSet(viewsets.ModelViewSet):

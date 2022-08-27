@@ -37,6 +37,7 @@ BACKEND_URLS = [
     "core.backend.endpoints.vocabulary.apps.VocabularyConfig",
     "core.backend.endpoints.dashboard.apps.DashboardConfig",
     "core.backend.endpoints.contact_me.apps.ContactMeConfig",
+    "core.backend.endpoints.dashboard_request_change.apps.DashboardRequestChangeConfig",
 ]
 
 FRONTEND_URLS = [

@@ -9,7 +9,7 @@ def request_page(request):
     words = requests.get("http://127.0.0.1:8000/api/dashboard/vocabulary/", headers={"Authorization": "Token " + request.session.get("token", "")}).json()
 
     data = {"verbs": verbs, "users": users, "words": words}
-    return render(request, "dashboard_request/page.html", data)
+    return render(request, "dashboard_request/approving.html", data)
 
 
 def approve_word(request, pk):
